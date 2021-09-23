@@ -1,0 +1,109 @@
+<html>
+<head>
+    <meta name = "viewport" content = "with=device-width, initial-scale=1.0">
+    <title>PastProjects</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section class = "header">
+    <nav>
+        <a href = "index.html"><img src = "images/Logo.jpg"></a>
+        <div class="nav-links" id = "navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+            <ul>
+                <li><a href = "index.html">Home</a></li>
+                <li><a href = "PastProjects.html">Past Projects</a></li>
+                <li><a href = "Topics.html">Topics</a></li>
+                <li><a href = "Bibliography.html">Bibliography</a></li>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+</section>
+<!---------JavaScript for Toggle Menu Mobile Devices---- -->
+<script>
+    var navLinks = document.getElementById("navLinks");
+    
+    function showMenu() {
+        navLinks.style.right = "0";
+    }
+    function hideMenu() {
+        navLinks.style.right = "-200px";
+    }
+</script>
+<section class = "ProjTitle">
+    <h1>Past Projects</h1>
+</section>
+<section class = "proj">
+    <h1>ICS 10</h1>
+    <a href = "g11"><img src = "images/g11.png"></a>
+    <a><img src = "images/g12.png"></a>
+    <a><br><img src = "images/g13.png"></a>
+    <a><img src = "images/g14.png"></a>
+    <p>Created a project with a martial arts game. The game consists of an animation, a maze in which you collect coins and gain experience, and a game that faces you off against the final boss.</p>
+    <h1>ICS 11</h1>
+    <a><img src = "images/g21.png"></a>
+    <a><img src = "images/g22.png"></a>
+    <a><br><img src = "images/g23.png"></a>
+    <a><img src = "images/g24.png"></a>
+    <p>Created a program that allows you to play the board game of snakes and ladders online. Users have options to view recent scores and instructions, in addition to playing the game. The player simply presses the space bar, and the program will generate a number and move your icon to the correct position.</p>
+    <h1>Shuffle Cards</h1>
+</section>
+<section class = "apps">
+    <div class = "rown">
+        <div class = "column">
+            <script>
+            function shuffle (array) {
+                let curI = array.length, randomI;
+                while (curI != 0) {
+                    randomI = Math.floor(Math.random() * curI);
+                    curI--;
+                    [array[curI], array[randomI]] = [array[randomI], array[curI]];
+                }
+                return array;
+            }
+            document.write("Card Shuffle<br>");
+            document.write("Welcome, user, to this program.<br>");
+            document.write("It will generate a deck of randomly shuffled cards<br>");
+            var cards = [];
+            var c = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K"];
+            var s = ["C", "D", "H", "S"];
+            for (let i = 0; i < 13; i++) {
+                for (let j = 0; j < 4; j++) {
+                    cards.push(c[i].concat(s[j]))
+                }
+            }
+            shuffle(cards);
+            var count = 0;
+            for (let i = 0; i < 4; i++) {
+                for (let j = count; j < count + 13; j++) {
+                    document.write(cards[j] + " ");
+                }
+                document.write("<br>");
+                count += 13;
+            }
+            </script>
+        </div>
+        <div class = "column2">
+            <p>This program shuffles cards using a randomness algorithm. The cards are then printed thirteen per each line over four lines to represent the cards of players in bridge.</p>
+            <a href = "shuffle.html" class = "btn"> Run the program</a>
+        </div>
+    </div>
+    <h1>Bridge</h1>
+    <div class = "rown">
+        <div class = "column">
+            <p>Please enter the names of the players on four separate lines.</p>
+            <p>Player 1 Cards: 9C 6D 3S . . .</p>
+            <p>Player 2 Cards: 4C QS JD . . .</p>
+            <p>Player 3 Cards: 8C 6S KS . . .</p>
+            <p>Player 4 Cards: JC 6C TH . . .</p>
+        </div>
+        <div class = "column2">
+            <p>This program allows players to calculate points for the classic game of bridge. It determines the points the hand of a player is worth and outputs the winning player(s) on the last line.</p>
+            <a href = "bridge.html" class = "btn"> Run the program</a>
+        </div>
+    </div>
+    
+</section>
+</body>
+</html>

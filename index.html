@@ -1,0 +1,47 @@
+<html>
+<head>
+    <meta name = "viewport" content = "with=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href = "https://fonts.googleapis.com/css2?
+      family = Poppins:wght@100;200;300;400;600;700&display=swap"
+      rel = "stylesheet">
+    <link rel = "stylesheet" href="https://stackpath.bootstrapcdn.com/fontawesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<section class = "header">
+    <nav>
+        <a href = "index.html"><img src = "images/Logo.jpg"></a>
+        <div class="nav-links" id = "navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+            <ul>
+                <li><a href = "index.html">Home</a></li>
+                <li><a href = "PastProjects.html">Past Projects</a></li>
+                <li><a href = "Topics.html">Topics</a></li>
+                <li><a href = "Bibliography.html">Bibliography</a></li>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+<div class = "text-box">
+    <h1>Portfolio</h1>
+    <p>Welcome to my website! I am a Grade 11 student at William Lyon Mackenzie CI.</p>
+    <a><img src = "images/Portrait.jpg"></a> <br>
+</div>
+</section>
+</body>
+<section class = "home-images">
+    <a><img src = "images/Bike.jpg"></a>
+    <a><img src = "images/Ski.jpg"></a>
+</section>
+<!--------About Me----->
+<section class = "about">
+    <h2>Hobbies</h2>
+    <p>Some of my hobbies include biking, skiing, programming, reading, and playing chess.</p>
+    <h1>Ongoing Projects</h1>
+    <a><img src = "images/Maze.jpg"></a>
+    <a><img src = "images/MazeSolve.jpg"></a>
+    <p>I am working on a Java Program that solves a maze using graph theory. The user inputs a maze and the algorithm solves the inputted maze. The algorithm searches every possible path of the maze, and adds each possible path to a list. If a dead end is reached, the path is deleted. If it is successful, the path is illustrated to the user. The program uses an array storing which squares are walls or walkable, in addition to a visited array that keeps track of squares already visited.</p>
+</section>
+</html>

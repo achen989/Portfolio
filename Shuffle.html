@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <meta name = "viewport" content = "with=device-width, initial-scale=1.0">
+        <title>Shuffle Cards</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <section class = "header">
+            <nav>
+                <a href = "index.html"><img src = "images/Logo.jpg"></a>
+                <div class="nav-links" id = "navLinks">
+                    <i class="fa fa-times" onclick="hideMenu()"></i>
+                    <ul>
+                        <li><a href = "index.html">Home</a></li>
+                        <li><a href = "PastProjects.html">Past Projects</a></li>
+                        <li><a href = "Topics.html">Topics</a></li>
+                        <li><a href = "Bibliography.html">Bibliography</a></li>
+                    </ul>
+                </div>
+                <i class="fa fa-bars" onclick="showMenu()"></i>
+            </nav>
+        </section>
+        <section class = "shuf">
+            <h1>Shuffle Cards</h1>
+            <section class = "shuffApp">
+            <script>
+            function shuffle (array) {
+                let curI = array.length, randomI;
+                while (curI != 0) {
+                    randomI = Math.floor(Math.random() * curI);
+                    curI--;
+                    [array[curI], array[randomI]] = [array[randomI], array[curI]];
+                }
+                return array;
+            }
+            document.write("Card Shuffle<br>");
+            document.write("Welcome to this program, user!<br>");
+            document.write("It will generate a deck of randomly shuffled cards<br>");
+            var cards = [];
+            var c = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K"];
+            var s = ["C", "D", "H", "S"];
+            for (let i = 0; i < 13; i++) {
+                for (let j = 0; j < 4; j++) {
+                    cards.push(c[i].concat(s[j]))
+                }
+            }
+            shuffle(cards);
+            var count = 0;
+            for (let i = 0; i < 4; i++) {
+                for (let j = count; j < count + 13; j++) {
+                    document.write(cards[j] + " ");
+                }
+                document.write("<br>");
+                count += 13;
+            }
+            </script>
+            <a href = "shuffle.html" class = "btn"> Rerun</a>
+            <section class = "row">
+                <a href = "PastProjects.html" class = "page-col page-col4">
+                <h3>Past Projects</h3>
+                <p> Past Java Projects with various cool features!</p>
+                </a>
+                <a href = "PastProjects.html" class = "page-col page-col5">
+                    <h3>Project Navigation</h3>
+                    <p> Easily navigate to these projects! </p>
+                </a>
+                <a href = "Bridge.html" class = "page-col page-col6">
+                    <h3>Bridge</h3>
+                    <p> This program calculates points for the classic game of bridge!<br><br><br><br></p>
+                </a>
+            </section>
+            </section>
+        </section>
+    </body>
+</html>

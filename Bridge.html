@@ -1,0 +1,194 @@
+<html>
+    <head>
+        <meta name = "viewport" content = "with=device-width, initial-scale=1.0">
+        <title>Shuffle Cards</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <section class = "header">
+            <nav>
+                <a href = "index.html"><img src = "images/Logo.jpg"></a>
+                <div class="nav-links" id = "navLinks">
+                    <i class="fa fa-times" onclick="hideMenu()"></i>
+                    <ul>
+                        <li><a href = "index.html">Home</a></li>
+                        <li><a href = "PastProjects.html">Past Projects</a></li>
+                        <li><a href = "Topics.html">Topics</a></li>
+                        <li><a href = "Bibliography.html">Bibliography</a></li>
+                    </ul>
+                </div>
+                <i class="fa fa-bars" onclick="showMenu()"></i>
+            </nav>
+        </section>
+        <section class = "bridge">
+            <h1>Bridge</h1>
+            <section class = "bridgeApp">
+            <script>
+            function ranking (cards) {
+                var r = [];
+                for (let i = 0; i < 4; i++) {
+                    var score = 0;
+                    var c = cards[i];
+                    var suitCount = [0, 0, 0, 0];
+                    for (let j = 0; j < 13; j++) {
+                        var str = c[j];
+                        if (str.indexOf("A") != -1) {
+                            score += 4;
+                        }
+                        else if (str.indexOf("K") != -1) {
+                            score += 3;
+                        }
+                        else if (str.indexOf("Q") != -1) {
+                            score += 2;
+                        }
+                        else if (str.indexOf("J") != -1) {
+                            score++;
+                        }
+                        if (str.indexOf("C") != -1) {
+                            suitCount[0]++;
+                        }
+                        else if (str.indexOf("D") != -1) {
+                            suitCount[1]++;
+                        }
+                        else if (str.indexOf("H") != -1) {
+                            suitCount[2]++;
+                        }
+                        else {
+                            suitCount[3]++;
+                        }
+                    }
+                    for (let j = 0; j < 4; j++) {
+                        if (suitCount[j] < 1) {
+                            score += 3;
+                        }
+                        else if (suitCount[j] < 2) {
+                            score += 2;
+                        }
+                        else if (suitCount[j] < 3) {
+                            score++;
+                        }
+                    }
+                    r.push(score);
+                }
+                return r;
+            }
+            var names = [];
+            var suits = ["C", "D", "H", "S"];
+            document.write("Bridge<br>");
+            var quit = prompt("You can quit this program and check out the shuffle cards program whose output can be used as input for this program. Press q to quit and any key to continue.");
+            var q = "q";
+            quit = quit.toLowerCase();
+            if (quit === q) {
+                throw new Error();
+            }
+            names.push(prompt("Please input the names of the players on four separate lines. Player 1:"));
+            document.write("Please input the names of the players on four separate lines.<br> Player 1: " + names[0] + "<br>");
+            names.push(prompt("Player 2:"));
+            document.write("Player 2: " + names[1] + "<br>");
+            names.push(prompt("Player 3:"));
+            document.write("Player 3: " + names[2] + "<br>");
+            names.push(prompt("Player 4:"));
+            document.write("Player 4: " + names[3] + "<br>");
+            var cards = new Array(4);
+            prompt("Please input the thirteen cards, separated by a space, of each player on four separate lines. No two cards may be the same. Each card is represented by two characters for denomination and suit. For example TH for ten of hearts, 8S for eight of spades, KD for king of diamonds. Press any key to continue.");
+            document.write("Please input the thirteen cards, separated by a space, of each player on four separate lines. <br>No two cards may be the same. Each card is represented by two characters for denomination and suit. <br>For example TH for ten of hearts, 8S for eight of spades, KD for king of diamonds.<br>");
+            var s;
+            var fstf = ["First", "Second", "Third", "Fourth"]
+            for (var i = 0; i < 4; i++) {
+                s = prompt(fstf[i] + " Line: ");
+                cards[i] = s.split(" ");
+            }
+            for (var i = 0; i < 4; i++) {
+                document.write(names[i] + ": ");
+                for (var j = 0; j < 12; j++) {
+                    document.write(cards[i][j] + ", ");
+                }
+                document.write(cards[i][12] + "<br>");
+            }
+            var ranks = ranking(cards);
+            document.write("Name: " + names[0] + "<br>");
+            for (let i = 0; i < 4; i++) {
+                for (let j = 0; j < 13; j++) {
+                    if (cards[0][j].indexOf(suits[i]) != -1) {
+                        document.write(cards[0][j] + " ");
+                    }
+                }
+                document.write("<br>");
+            }
+            document.write("Score: " + ranks[0] + "<br>");
+            document.write("Name: " + names[1] + "<br>");
+            for (let i = 0; i < 4; i++) {
+                for (let j = 0; j < 13; j++) {
+                    if (cards[1][j].indexOf(suits[i]) != -1) {
+                        document.write(cards[1][j] + " ");
+                    }
+                }
+                document.write("<br>");
+            }
+            document.write("Score: " + ranks[1] + "<br>");
+            document.write("Name: " + names[2] + "<br>");
+            for (let i = 0; i < 4; i++) {
+                for (let j = 0; j < 13; j++) {
+                    if (cards[2][j].indexOf(suits[i]) != -1) {
+                        document.write(cards[2][j] + " ");
+                    }
+                }
+                document.write("<br>");
+            }
+            document.write("Score: " + ranks[2] + "<br>");
+            document.write("Name: " + names[3] + "<br>");
+            for (let i = 0; i < 4; i++) {
+                for (let j = 0; j < 13; j++) {
+                    if (cards[3][j].indexOf(suits[i]) != -1) {
+                        document.write(cards[3][j] + " ");
+                    }
+                }
+                document.write("<br>");
+            }
+            document.write("Score: " + ranks[3] + "<br>");
+            for (var i = 1; i < 4; i++) {
+                var temp = names[i];
+                var tempN = ranks[i];
+                var j = i - 1;
+                while ((j > -1) && (ranks[j] > tempN)) {
+                    names[j+1] = names[j];
+                    ranks[j+1] = ranks[j];
+                    j--;
+                }
+                names[j+1] = temp;
+                ranks[j+1] = tempN;
+            }
+            if (ranks[0] == ranks[1] && ranks[1] == ranks[2] && ranks[3]) {
+                document.write("All four players have won." + "<br>");
+            }
+            else if (ranks[1] == ranks[2] && ranks[2] == ranks[3]) { 
+                document.write("The winners of this game of bridge are: " + names[1] + ", " + names[2] + ", and " + names[3] + ".<br>");
+            }
+            else if (ranks[2] == ranks[3]) {
+                document.write("The winners of this game of bridge are: " + names[2] + " and " + names[3] + ".<br>"); // If two ranks are equal
+            }
+            else { // If there is one winner
+                document.write("The winner of this game of bridge is: " + names[3] +".<br>");
+            }
+            </script>
+            </section>
+            <section class = "shuffApp">
+            <a href = "Bridge.html" class = "btn"> Rerun</a>
+            <section class = "row">
+                <a href = "PastProjects.html" class = "page-col page-col4">
+                <h3>Past Projects</h3>
+                <p> Past Java Projects with various cool features!</p>
+                </a>
+                <a href = "PastProjects.html" class = "page-col page-col5">
+                    <h3>Project Navigation</h3>
+                    <p> Easily navigate to these projects! </p>
+                </a>
+                <a href = "Shuffle.html" class = "page-col page-col6">
+                    <h3>Shuffle</h3>
+                    <p> This program generates fifty two random cards!<br><br><br><br></p>
+                </a>
+            </section>
+            </section>
+        </section>
+    </body>
+</html>
